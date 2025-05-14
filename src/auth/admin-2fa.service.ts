@@ -8,7 +8,7 @@ export class TwoFAService {
   async generate2Fa(user: User): Promise<Record<string, any>> {
     const secret = authenticator.generateSecret();
     const otpAuthUrl = authenticator.keyuri(
-      user.email, // Use the user's email as the identifier
+      user.email,
       process.env.APP_NAME || 'MyApp', // Replace with your app name
       secret,
     );
