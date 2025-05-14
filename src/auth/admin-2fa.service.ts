@@ -27,7 +27,6 @@ export class TwoFAService {
 
   async verify2Fa(token: string, user: User): Promise<boolean> {
     try {
-      console.log(user, '*******************');
       return user.twoFaSecret
         ? authenticator.check(token, user.twoFaSecret)
         : false;
